@@ -1,7 +1,5 @@
 /*
-    This file contains basic game functions and classes. 
-    
-    Input object for handling touch input. 
+    This file contains Input structure for handling touch input. 
 */
 
 const { Vector2 } = THREE;
@@ -57,12 +55,3 @@ var Input = {
         this._clickArr.push({f, args});
     }
 }
-
-/*
-    Basic level class. 
-*/
-
-const Level = function() {
-    this.enemies = [];
-    this.bullets = [];
-} 
