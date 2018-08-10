@@ -1,5 +1,5 @@
 # Soundodger-clone
-Simple html game creating by Rull Deef.
+Simple html game
 
-**List of dependencies:** 
+list of dependencies:
 - core: input
