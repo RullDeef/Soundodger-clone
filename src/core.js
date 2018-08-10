@@ -9,10 +9,16 @@ const { Vector2 } = THREE;
 var Input = {
     touchPos: new Vector2,
     delta: new Vector2,
+    _clickArr: [], 
     
     init: function() {
         window.addEventListener('touchstart', e => this.start(e));
         window.addEventListener('touchmove', e => this.update(e));
+        
+        window.addEventListener('click', e => {
+            this.start(e);
+            this._clickArr.forEach(ob => ob.f(...ob.args));
+        });
     }, 
     
     start: function(event) {
@@ -34,5 +40,9 @@ var Input = {
         this.delta.x = x - this.touchPos.x
         this.delta.y = y - this.touchPos.y;
         this.touchPos.set(x, y);
+    }, 
+    
+    onclick: function(f, ...args) {
+        this._clickArr.push({f, args});
     }
 }
