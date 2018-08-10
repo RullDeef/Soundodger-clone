@@ -16,7 +16,7 @@ var Input = {
         window.addEventListener('touchmove', e => this.update(e));
         
         window.addEventListener('click', e => {
-            this.start(e);
+            this.click(e);
             this._clickArr.forEach(ob => ob.f(...ob.args));
         });
     }, 
@@ -42,7 +42,27 @@ var Input = {
         this.touchPos.set(x, y);
     }, 
     
+    click: function(event) {
+        let x = event.pageX;
+        let y = event.pageY;
+        
+        x = x/window.innerWidth*2 - 1;
+        y = 1 - y/window.innerHeight*2;
+        
+        this.touchPos.set(x, y);
+        this.delta.set(0, 0);
+    }, 
+    
     onclick: function(f, ...args) {
         this._clickArr.push({f, args});
     }
 }
+
+/*
+    Basic level class. 
+*/
+
+const Level = function() {
+    this.enemies = [];
+    this.bullets = [];
+} 
