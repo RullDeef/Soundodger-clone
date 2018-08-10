@@ -1,5 +1,7 @@
 /*
-This file contains basic game functions and classes
+    This file contains basic game functions and classes. 
+    
+    Input object for handling touch input. 
 */
 
 const { Vector2 } = THREE;
