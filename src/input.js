@@ -2,11 +2,9 @@
     This file contains Input structure for handling touch input. 
 */
 
-const { Vector2 } = THREE;
-
 var Input = {
-    touchPos: new Vector2,
-    delta: new Vector2,
+    touchPos: new THREE.Vector2,
+    delta: new THREE.Vector2,
     _clickArr: [], 
     
     init: function() {
