@@ -13,6 +13,8 @@ function LevelData() {
     this.author = 'unknown';
     this.track = 'unknown track';
     this.src = '#';
+    this.duration = 0;
+    this.enemies = 0;
     this.difficulty = 0;
     this.bullets = [];
     this.spins = [];
@@ -170,9 +172,22 @@ var Game = {
         Input.init();
         Player.init();
         Game.renderer = new THREE.WebGLRenderer;
+        Game.renderer.setPixelRatio(window.devicePixelRatio);
+        Game.renderer.setSize(window.innerWidth, window.innerHeight);
         Game.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
         Game.scene = new THREE.Scene;
     }, 
     
-    // entry point 
+    // entry point
+    start: function(level) {
+        Game.level = level;
+        Game.mainloop();
+    }, 
+    
+    // main game cycle
+    mainloop: function render() {
+        window.requestAnimationFrame(render);
+        
+        Game.renderer.render(Game.scene, Game.camera);
+    }, 
 } 
