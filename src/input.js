@@ -13,7 +13,7 @@ var Input = {
         
         window.addEventListener('click', e => {
             this.click(e);
-            this._clickArr.forEach(ob => ob.f(...ob.args));
+            this._clickArr.forEach(ob => ob.f(...(ob.args)));
         });
     }, 
     
