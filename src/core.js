@@ -52,7 +52,7 @@ LevelData.Spin = function(time, speed = 0) {
 */
 LevelData.Time = function(time, scale = 1) {
     this.time = time;
-    this.scale = max(-2, min(scale, 2);
+    this.scale = max(-2, min(scale, 2));
 } 
 
 /*
