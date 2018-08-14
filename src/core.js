@@ -35,6 +35,11 @@ LevelData.prototype.addTime = function(t) {
     this.time.push(t);
 } 
 
+LevelData.prototype.getDurationString = function() {
+    let s = this.duration;
+    return ~~(s/60) + ":" + (s%60);
+} 
+
 LevelData.prototype.activeEnemies = function() {
     return [];
 } 
@@ -144,4 +149,30 @@ Level.prototype.init = function() {
     let eList = this.data.activeEnemies();
     for(let e of eList) 
         this.enemies.push(new Enemy(0.6, 3, 0));
+} 
+
+/*
+    Main game object
+*/
+var Game = {
+    level: null, // level object to interact with
+    
+    // THREE components for rendering
+    renderer: null, 
+    camera: null, 
+    scene: null, 
+    
+    // state control properties 
+    paused: false, 
+    
+    // initializes all game components (input, player, renderer... 
+    init: function() {
+        Input.init();
+        Player.init();
+        Game.renderer = new THREE.WebGLRenderer;
+        Game.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        Game.scene = new THREE.Scene;
+    }, 
+    
+    // entry point 
 } 
